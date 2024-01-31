@@ -1,4 +1,5 @@
 <?php
+include 'StringUtilsFunctions.php';
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $action = $_POST['action'];
@@ -6,16 +7,16 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     switch ($action) {
         case 'reverse':
-            $result = strrev($inputString);
+            $result = reverseString($inputString);
             break;
         case 'toUpperCase':
-            $result = strtoupper($inputString);
+            $result = toUpperCase($inputString);
             break;
         case 'toLowerCase':
-            $result = strtolower($inputString);
+            $result = toLowerCase($inputString);
             break;
         case 'countLetters':
-            $result = strlen(preg_replace('/[^a-zA-Z]/', '', $inputString));
+            $result = countLetters($inputString);
             break;
         default:
             $result = 'Acción no válida';
@@ -24,5 +25,4 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     echo $result;
 }
-
 ?>

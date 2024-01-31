@@ -13,10 +13,10 @@
         <label for="inputString">Introduce una cadena:</label>
         <input type="text" id="inputString" name="inputString" required>
         <br>
-        <button type="button" onclick="reverseString()">Darle la vuelta</button>
-        <button type="button" onclick="toUpperCase()">Mayúsculas</button>
-        <button type="button" onclick="toLowerCase()">Minúsculas</button>
-        <button type="button" onclick="countLetters()">Contar letras</button>
+        <button type="button" onclick="sendRequest('reverse')">Darle la vuelta</button>
+        <button type="button" onclick="sendRequest('toUpperCase')">Mayúsculas</button>
+        <button type="button" onclick="sendRequest('toLowerCase')">Minúsculas</button>
+        <button type="button" onclick="sendRequest('countLetters')">Contar letras</button>
     </form>
 
     <div id="resultContainer"></div>
@@ -35,22 +35,6 @@
             xhr.open('POST', 'StringUtils.php', true);
             xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
             xhr.send('action=' + action + '&inputString=' + inputString);
-        }
-
-        function reverseString() {
-            sendRequest('reverse');
-        }
-
-        function toUpperCase() {
-            sendRequest('toUpperCase');
-        }
-
-        function toLowerCase() {
-            sendRequest('toLowerCase');
-        }
-
-        function countLetters() {
-            sendRequest('countLetters');
         }
     </script>
 
