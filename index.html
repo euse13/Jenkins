@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>StringUtils App</title>
+</head>
+<body>
+
+    <h1>StringUtils App</h1>
+
+    <form id="stringForm">
+        <label for="inputString">Introduce una cadena:</label>
+        <input type="text" id="inputString" name="inputString" required>
+        <br>
+        <button type="button" onclick="reverseString()">Darle la vuelta</button>
+        <button type="button" onclick="toUpperCase()">Mayúsculas</button>
+        <button type="button" onclick="toLowerCase()">Minúsculas</button>
+        <button type="button" onclick="countLetters()">Contar letras</button>
+    </form>
+
+    <div id="resultContainer"></div>
+
+    <script>
+        function sendRequest(action) {
+            var inputString = document.getElementById('inputString').value;
+            var xhr = new XMLHttpRequest();
+
+            xhr.onreadystatechange = function() {
+                if (xhr.readyState == 4 && xhr.status == 200) {
+                    document.getElementById('resultContainer').innerHTML = xhr.responseText;
+                }
+            };
+
+            xhr.open('POST', 'StringUtils.php', true);
+            xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+            xhr.send('action=' + action + '&inputString=' + inputString);
+        }
+
+        function reverseString() {
+            sendRequest('reverse');
+        }
+
+        function toUpperCase() {
+            sendRequest('toUpperCase');
+        }
+
+        function toLowerCase() {
+            sendRequest('toLowerCase');
+        }
+
+        function countLetters() {
+            sendRequest('countLetters');
+        }
+    </script>
+
+</body>
+</html>
