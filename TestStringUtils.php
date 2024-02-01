@@ -6,7 +6,7 @@ require_once 'StringUtils.php';
 
 class TestStringUtils extends TestCase
 {
-    // Pruebas para reverseString
+    
     public static function reverseStringEqualsProvider()
     {
         return [
