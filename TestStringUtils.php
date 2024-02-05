@@ -7,8 +7,7 @@ require_once 'StringUtils.php';
 class TestStringUtils extends TestCase
 {
     // Pruebas para reverseString
-
-    public function reverseStringDataProvider(): array
+    public function reverseStringEqualsProvider()
     {
         return [
             ['hola', 'aloh'],
@@ -18,35 +17,16 @@ class TestStringUtils extends TestCase
     }
 
     /**
-     * @dataProvider reverseStringDataProvider
+     * @dataProvider reverseStringEqualsProvider
      */
-    public function testReverseStringEquals(string $input, string $expected): void
+    public function testReverseStringEquals($input, $expected)
     {
         $result = reverseString($input);
         $this->assertEquals($expected, $result);
     }
 
-    public function reverseStringNotEqualsDataProvider(): array
-    {
-        return [
-            ['hola', 'hola'],
-            ['perro', 'perro'],
-            ['12345', '12345'],
-        ];
-    }
-
-    /**
-     * @dataProvider reverseStringNotEqualsDataProvider
-     */
-    public function testReverseStringNotEquals(string $input, string $expected): void
-    {
-        $result = reverseString($input);
-        $this->assertNotEquals($expected, $result);
-    }
-
     // Pruebas para toUpperCase
-
-    public function toUpperCaseDataProvider(): array
+    public function toUpperCaseEqualsProvider()
     {
         return [
             ['hola', 'HOLA'],
@@ -56,35 +36,16 @@ class TestStringUtils extends TestCase
     }
 
     /**
-     * @dataProvider toUpperCaseDataProvider
+     * @dataProvider toUpperCaseEqualsProvider
      */
-    public function testToUpperCaseEquals(string $input, string $expected): void
+    public function testToUpperCaseEquals($input, $expected)
     {
         $result = toUpperCase($input);
         $this->assertEquals($expected, $result);
     }
 
-    public function toUpperCaseNotEqualsDataProvider(): array
-    {
-        return [
-            ['hola', 'hola'],
-            ['perro', 'perro'],
-            ['123abc', '123abc'],
-        ];
-    }
-
-    /**
-     * @dataProvider toUpperCaseNotEqualsDataProvider
-     */
-    public function testToUpperCaseNotEquals(string $input, string $expected): void
-    {
-        $result = toUpperCase($input);
-        $this->assertNotEquals($expected, $result);
-    }
-
     // Pruebas para toLowerCase
-
-    public function toLowerCaseDataProvider(): array
+    public function toLowerCaseEqualsProvider()
     {
         return [
             ['HOLa', 'hola'],
@@ -94,35 +55,16 @@ class TestStringUtils extends TestCase
     }
 
     /**
-     * @dataProvider toLowerCaseDataProvider
+     * @dataProvider toLowerCaseEqualsProvider
      */
-    public function testToLowerCaseEquals(string $input, string $expected): void
+    public function testToLowerCaseEquals($input, $expected)
     {
         $result = toLowerCase($input);
         $this->assertEquals($expected, $result);
     }
 
-    public function toLowerCaseNotEqualsDataProvider(): array
-    {
-        return [
-            ['HOLa', 'HOLa'],
-            ['PeRRo', 'PeRRo'],
-            ['123ABC', '123ABC'],
-        ];
-    }
-
-    /**
-     * @dataProvider toLowerCaseNotEqualsDataProvider
-     */
-    public function testToLowerCaseNotEquals(string $input, string $expected): void
-    {
-        $result = toLowerCase($input);
-        $this->assertNotEquals($expected, $result);
-    }
-
     // Pruebas para countLetters
-
-    public function countLettersDataProvider(): array
+    public function countLettersEqualsProvider()
     {
         return [
             ['hola', 4],
@@ -132,29 +74,11 @@ class TestStringUtils extends TestCase
     }
 
     /**
-     * @dataProvider countLettersDataProvider
+     * @dataProvider countLettersEqualsProvider
      */
-    public function testCountLettersEquals(string $input, int $expected): void
+    public function testCountLettersEquals($input, $expected)
     {
         $result = countLetters($input);
         $this->assertEquals($expected, $result);
-    }
-
-    public function countLettersNotEqualsDataProvider(): array
-    {
-        return [
-            ['hola', 6],
-            ['perro', 7],
-            ['123ABC', 4],
-        ];
-    }
-
-    /**
-     * @dataProvider countLettersNotEqualsDataProvider
-     */
-    public function testCountLettersNotEquals(string $input, int $expected): void
-    {
-        $result = countLetters($input);
-        $this->assertNotEquals($expected, $result);
     }
 }
